@@ -180,21 +180,19 @@ async function requestSiteJson(url, options = {}) {
 
 // Visitantes novos também leem o arquivo publicado, e não apenas os seis exemplos.
 async function loadSiteData() {
-  if (!/^https?:$/.test(window.location.protocol) || hasLocalArticleChanges()) return getSiteData();
+  // O Pages CMS grava em artigos.json. Esta é a fonte oficial para visitantes.
+  if (!/^https?:$/.test(window.location.protocol)) return getSiteData();
   if (siteDataRequest) return siteDataRequest;
-  const previousCache = readSiteStorage(SITE_DATA_KEY);
   siteDataRequest = (async () => {
     try {
       const data = normalizeSiteData(await requestSiteJson('artigos.json', { cache: 'no-store' }));
-      // Uma resposta atrasada não pode sobrescrever um artigo recém-salvo.
-      if (hasLocalArticleChanges() || readSiteStorage(SITE_DATA_KEY) !== previousCache) return getSiteData();
-      try {
-        localStorage.setItem(SITE_DATA_KEY, JSON.stringify(data));
-        localStorage.setItem(SITE_DATA_PENDING_KEY, 'false');
-      } catch { /* Leitura pública funciona mesmo sem armazenamento local. */ }
       return data;
-    } catch { return getSiteData(); }
-    finally { siteDataRequest = null; }
+    } catch (error) {
+      console.warn('Não foi possível consultar os artigos publicados.', error);
+      return getSiteData();
+    } finally {
+      siteDataRequest = null;
+    }
   })();
   return siteDataRequest;
 }
