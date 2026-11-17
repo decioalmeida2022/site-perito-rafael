@@ -17,7 +17,7 @@
     if (perfil && perfil.imagem_principal) {
       // CSS custom property preserva o enquadramento desktop e celular.
       const path = String(perfil.imagem_principal);
-      if (/^(https?:\\/\\/|assets\\/)[^"'()\\s]+$/i.test(path)) {
+      if ((path.startsWith('assets/') || path.startsWith('https://') || path.startsWith('http://')) && !path.includes('"') && !path.includes("'") && !path.includes('(') && !path.includes(')') && !path.includes(' ')) {
         document.documentElement.style.setProperty('--cms-hero-image', 'url("' + path + '")');
       }
     }
