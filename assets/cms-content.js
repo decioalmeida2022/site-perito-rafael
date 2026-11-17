@@ -38,6 +38,13 @@
         a.href = 'https://wa.me/' + window.RAFAEL_CONTACT_WHATSAPP + current.search;
       });
     }
+    if (contato && typeof contato.texto_botao === 'string' && contato.texto_botao.trim()) {
+      const button = document.querySelector('.hero-actions a[href^="https://wa.me/"]');
+      if (button) {
+        const label = Array.from(button.childNodes).find(node => node.nodeType === 3 && node.textContent.trim());
+        if (label) label.textContent = contato.texto_botao.trim();
+      }
+    }
     if (contato && contato.email) {
       document.querySelectorAll('a[href^="mailto:"]').forEach(a => {
         a.href = 'mailto:' + contato.email;
