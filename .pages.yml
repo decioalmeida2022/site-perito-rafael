@@ -1,0 +1,113 @@
+media:
+  input: assets/uploads
+  output: assets/uploads
+  rename: safe
+  extensions: [jpg, jpeg, png, webp, svg]
+content:
+  - name: artigos
+    label: Artigos técnicos (formato atual)
+    type: file
+    path: artigos.json
+    format: json
+    fields:
+      - name: artigos
+        label: Artigos
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{titulo}"
+        fields:
+          - name: id
+            label: Identificador (não alterar após publicar)
+            type: string
+            required: true
+          - name: titulo
+            label: Título
+            type: string
+            required: true
+          - name: categoria
+            label: Categoria
+            type: string
+          - name: data
+            label: Data (DD/MM/AAAA)
+            type: string
+          - name: autor
+            label: Autor
+            type: string
+          - name: tempoLeitura
+            label: Tempo de leitura
+            type: string
+          - name: resumo
+            label: Resumo
+            type: text
+          - name: imagem
+            label: Imagem (URL ou caminho)
+            type: string
+          - name: conteudo
+            label: Conteúdo HTML (temporário)
+            type: text
+            description: "Versão de transição; os artigos serão migrados para editor visual em outra etapa."
+  - name: perfil
+    label: Perfil profissional
+    type: file
+    path: content/perfil.json
+    format: json
+    fields:
+      - name: nome
+        label: Nome
+        type: string
+      - name: titulo
+        label: Nome do site
+        type: string
+      - name: descricao
+        label: Apresentação
+        type: text
+      - name: foto
+        label: Foto profissional
+        type: image
+      - name: imagem_principal
+        label: Imagem principal
+        type: image
+  - name: servicos
+    label: Serviços e especialidades
+    type: file
+    path: content/servicos.json
+    format: json
+    fields:
+      - name: servicos
+        label: Lista de serviços
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{titulo}"
+        fields:
+          - name: titulo
+            label: Nome do serviço
+            type: string
+            required: true
+          - name: descricao
+            label: Descrição
+            type: text
+  - name: contato
+    label: Contatos
+    type: file
+    path: content/contato.json
+    format: json
+    fields:
+      - name: whatsapp
+        label: WhatsApp com DDI e DDD (apenas números)
+        type: string
+      - name: email
+        label: E-mail
+        type: string
+      - name: telefone
+        label: Telefone
+        type: string
+      - name: cidade
+        label: Cidade
+        type: string
+      - name: texto_botao
+        label: Texto do botão de contato
+        type: string
