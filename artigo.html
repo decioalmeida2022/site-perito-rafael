@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Artigo Técnico & Parecer Científico | Rafael Leite Perícias</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          },
+          colors: {
+            corporate: {
+              night: '#0B132B',
+              slate: '#0F172A',
+              royal: '#2563EB',
+              royalHover: '#1D4ED8',
+              whatsapp: '#22C55E'
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    /* Estilos Acadêmicos para o Conteúdo */
+    .article-body h3 {
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: #0F172A;
+      margin-top: 2rem;
+      margin-bottom: 0.75rem;
+      letter-spacing: -0.02em;
+      border-left: 3px solid #2563EB;
+      padding-left: 0.75rem;
+    }
+    .article-body p {
+      font-size: 0.975rem;
+      line-height: 1.8;
+      color: #334155;
+      margin-bottom: 1.25rem;
+      text-align: justify;
+    }
+    .article-body blockquote {
+      background: #F1F5F9;
+      border-left: 4px solid #0F172A;
+      padding: 1rem 1.25rem;
+      margin: 1.5rem 0;
+      font-family: monospace;
+      font-size: 0.95rem;
+      color: #0F172A;
+      border-radius: 0.5rem;
+    }
+    .article-body ul {
+      list-style-type: disc;
+      padding-left: 1.5rem;
+      margin-bottom: 1.25rem;
+      color: #334155;
+      font-size: 0.95rem;
+      line-height: 1.7;
+    }
+    .article-body li {
+      margin-bottom: 0.5rem;
+    }
+    .article-body em {
+      font-style: italic;
+      color: #1E293B;
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased min-h-screen flex flex-col justify-between">
+
+  <!-- HEADER EXECUTIVO -->
+  <header class="bg-white border-b border-slate-200 sticky top-0 z-50">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 h-20 flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-3.5 group">
+        <div class="w-10 h-10 rounded-lg bg-corporate-night text-white font-black flex items-center justify-center text-base group-hover:bg-corporate-royal transition-colors">
+          RL
+        </div>
+        <div class="h-7 w-[1px] bg-slate-300"></div>
+        <div class="flex flex-col">
+          <span class="text-corporate-night font-extrabold text-sm tracking-tight">RAFAEL LEITE</span>
+          <span class="text-[9px] font-bold tracking-widest text-slate-500 uppercase">PERÍCIAS &amp; ENGENHARIA</span>
+        </div>
+      </a>
+
+      <div class="flex items-center gap-3">
+        <a href="index.html#artigos" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-slate-100 hover:bg-slate-200 text-xs font-bold text-slate-700 transition">
+          <i data-lucide="arrow-left" class="w-4 h-4"></i>
+          <span>Voltar ao Acervo de Artigos</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- CONTEÚDO DO ARTIGO -->
+  <main class="max-w-4xl mx-auto px-4 sm:px-6 py-12 flex-1 w-full">
+    <article id="articleContainer" class="bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden p-6 sm:p-12">
+      <div class="text-center py-20 text-slate-400">Carregando parecer técnico...</div>
+    </article>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-corporate-night text-slate-400 text-xs py-8 border-t border-slate-800 text-center">
+    <div class="max-w-4xl mx-auto px-4 space-y-2">
+      <p>&copy; 2024 Rafael Leite | Perícias &amp; Engenharia Especializada. Todos os direitos reservados.</p>
+      <p class="text-[11px] text-slate-500">CREA-MG Regular &bull; Perito Judicial TJMG &bull; Conselheiro Lafaiete - MG</p>
+    </div>
+  </footer>
+
+  <script src="data.js"></script>
+  <script>
+    async function renderArticlePage() {
+    const params = new URLSearchParams(window.location.search);
+    const articleId = params.get('id');
+    const data = await loadSiteData();
+    const article = articleId ? data.artigos.find(a => a.id === articleId) : data.artigos[0];
+
+    const container = document.getElementById('articleContainer');
+
+    if (article) {
+      document.title = `${article.titulo} | Rafael Leite Perícias`;
+
+      container.innerHTML = `
+        <div class="space-y-6">
+          
+          <div class="flex flex-wrap items-center gap-3">
+            <span class="px-3.5 py-1 bg-blue-50 border border-blue-200 text-corporate-royal text-xs font-extrabold rounded-full tracking-wide">
+              ${escapeArticleText(article.categoria)}
+            </span>
+            <span class="text-xs text-slate-400">&bull;</span>
+            <span class="text-xs text-slate-500 font-medium">${article.data || 'Publicado recentemente'}</span>
+            <span class="text-xs text-slate-400">&bull;</span>
+            <span class="text-xs text-slate-500 font-medium">${article.tempoLeitura || '8 min de leitura'}</span>
+          </div>
+
+          <h1 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-corporate-night leading-tight tracking-tight">
+            ${escapeArticleText(article.titulo)}
+          </h1>
+
+          <!-- Card do Autor -->
+          <div class="flex items-center gap-4 py-4 border-y border-slate-100 bg-slate-50/60 rounded-xl px-4">
+            <div class="w-12 h-12 rounded-xl bg-corporate-night text-white flex items-center justify-center font-black text-sm shrink-0">
+              RL
+            </div>
+            <div>
+              <div class="font-extrabold text-sm text-corporate-night">${escapeArticleText(article.autor || 'Eng. Rafael Leite')}</div>
+              <div class="text-xs text-slate-500">Engenheiro Mecânico &bull; Eng. de Segurança do Trabalho &bull; Perito Judicial TJMG</div>
+            </div>
+          </div>
+
+          <!-- Imagem de Capa -->
+          ${article.imagem ? `
+            <div class="rounded-2xl overflow-hidden max-h-[420px] shadow-sm my-6 border border-slate-100">
+              <img src="${article.imagem}" alt="${escapeArticleText(article.titulo)}" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?auto=format&fit=crop&w=1200&q=80';" class="w-full h-full object-cover filter contrast-105" />
+            </div>
+          ` : ''}
+
+          <!-- Resumo em Destaque -->
+          <div class="p-5 rounded-2xl bg-blue-50/70 border-l-4 border-corporate-royal text-corporate-night font-medium text-sm leading-relaxed">
+            <strong>Resumo Executivo:</strong> ${escapeArticleText(article.resumo)}
+          </div>
+
+          <!-- Texto Completo Acadêmico -->
+          <div class="article-body pt-4">
+            ${article.conteudo}
+          </div>
+
+          <!-- Chamada para Ação no Final da Leitura -->
+          <div class="mt-12 pt-8 border-t border-slate-200 flex flex-col sm:flex-row sm:items-center justify-between gap-6 bg-slate-50 p-6 rounded-2xl border">
+            <div>
+              <h4 class="font-bold text-sm text-corporate-night">Necessita de parecer técnico ou quesitação pericial para sua demanda?</h4>
+              <p class="text-xs text-slate-500 mt-0.5">Atuação direta com magistrados, bancas jurídicas e departamentos corporativos.</p>
+            </div>
+            <a href="https://wa.me/5531987199241?text=Ol%C3%A1%20Engenheiro%20Rafael%20Leite%2C%20li%20seu%20artigo%20'${encodeURIComponent(article.titulo)}'%20e%20gostaria%20de%20uma%20consulta." target="_blank" class="inline-flex items-center justify-center gap-2 px-6 py-3 bg-corporate-whatsapp hover:bg-emerald-600 text-white font-bold text-xs sm:text-sm rounded-xl shadow transition shrink-0">
+              <i data-lucide="message-circle" class="w-4 h-4"></i>
+              <span>Consultar o Engenheiro</span>
+            </a>
+          </div>
+
+        </div>
+      `;
+    } else {
+      container.innerHTML = `<div class="text-center py-20 text-slate-400">Artigo não localizado. <a href="index.html" class="text-corporate-royal font-bold">Voltar ao início</a></div>`;
+    }
+
+    if (window.lucide) lucide.createIcons();
+    }
+    renderArticlePage();
+  </script>
+</body>
+</html>

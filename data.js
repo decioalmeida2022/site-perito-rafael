@@ -1,0 +1,222 @@
+/**
+ * BANCO DE DADOS HÍBRIDO (LOCAL + SERVIDOR NA HOSPEDAGEM)
+ * Rafael Leite | Perícias & Engenharia Especializada
+ */
+
+const DEFAULT_SITE_DATA = {
+  artigos: [
+    {
+      id: "art-1",
+      titulo: "Mecanismos de Falha por Fadiga Termomecânica em Vasos de Pressão: Uma Abordagem Forense segundo ASME Seção VIII e NR-13",
+      categoria: "Engenharia Forense & Vasos de Pressão",
+      data: "12/11/2024",
+      autor: "Eng. Rafael Leite",
+      tempoLeitura: "8 min de leitura",
+      resumo: "Análise analítica dos gradientes térmicos transientes, concentração de tensões elasto-plásticas e mecânica da fratura aplicada a sinistros com colapso catastrófico em caldeiras e digestores industriais.",
+      imagem: "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1200&q=80",
+      conteudo: `
+        <h3>1. Introdução e Contexto Normativo</h3>
+        <p>Em plantas siderúrgicas e de celulose, vasos de pressão operando sob regimes transientes de temperatura e pressão interna sofrem severa degradação mecânica por fadiga termomecânica de baixo ciclo (LCF - Low Cycle Fatigue). A perícia judicial em tais sinistros exige a correlação entre os registros de comissionamento da Norma Regulamentadora NR-13 e os critérios de projeto do código ASME Boiler and Pressure Vessel Code (Section VIII, Division 1 e 2).</p>
+        
+        <h3>2. Termoelasticidade e Concentração de Tensões</h3>
+        <p>Durante as paradas e partidas bruscas, os gradientes térmicos através da espessura do costado geram distribuições de tensão secundária auto-equilibradas, que se superpõem às tensões de membrana induzidas pela pressão hidrostática:</p>
+        <blockquote>σ_total = (P · D) / (2 · t · E) + (E_mat · α · ΔT) / [2 · (1 - ν)]</blockquote>
+        <p>Onde <em>E_mat</em> representa o módulo de elasticidade, <em>α</em> o coeficiente de dilatação térmica linear e <em>ν</em> o coeficiente de Poisson. Quando regiões com descontinuidades geométricas (bocais, transições de espessura e reforços de solda) sofrem deformação plástica localizada repetitiva, o fenômeno de encruamento cíclico precipita a nucleação de microtrincas intergranulares.</p>
+        
+        <h3>3. Análise Fractográfica e Nexo Causal Judicial</h3>
+        <p>A determinação pericial da causa-raiz exige análise por Microscopia Eletrônica de Varredura (MEV). A presença de marcas de praia (beach marks) macroscópicas associada a estrias de fadiga microscópicas e delaminações secundárias descarta peremptoriamente a hipótese de ruptura por pressão momentânea excessiva (sobrepressão hidrostática pura), comprovando vício de integridade estrutural preexistente ou negligência nos ciclos de alívio de tensão pós-soldagem (PWHT).</p>
+      `
+    },
+    {
+      id: "art-2",
+      titulo: "Fratografia Eletrônica e Mecânica da Fratura Linear Elástica Aplicada ao Colapso de Eixos de Transmissão em Mineração Pesada",
+      categoria: "Metalurgia & Falhas Estruturais",
+      data: "05/11/2024",
+      autor: "Eng. Rafael Leite",
+      tempoLeitura: "10 min de leitura",
+      resumo: "Investigação probatória do colapso de componentes submetidos a torção combinada e flexão rotativa. Aplicação dos critérios de Paris-Erdogan e tenacidade à fratura (K_IC) em disputas de garantia e responsabilidade civil.",
+      imagem: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1200&q=80",
+      conteudo: `
+        <h3>1. Cinemática e Carregamento Multiaxial</h3>
+        <p>Grandes acionamentos eletromecânicos de transportadores de correia e britadores primários em mineradoras de ferro operam sob condições severas de choque mecânico e oscilação de torque. Em demandas judiciais que debatem defeito de fabricação (vício oculto) versus imperícia na parametrização de inversores de frequência ou falta de manutenção preditiva, a mecânica da fratura fornece as respostas determinantes.</p>
+        
+        <h3>2. O Modelo de Propagação Subcrítica de Trincas</h3>
+        <p>A taxa de propagação de trincas por fadiga segue rigorosamente a Lei de Paris-Erdogan:</p>
+        <blockquote>da / dN = C · (ΔK)^m</blockquote>
+        <p>Onde <em>ΔK = Y · Δσ · √(π·a)</em> representa a variação do fator de intensidade de tensão. A perícia técnica calcula retroativamente o número de ciclos necessários para a trinca evoluir do defeito metalúrgico inicial (inclusões de sulfeto de manganês ou microvazios de fundição) até o comprimento crítico <em>a_c</em>, instante em que ocorre a instabilidade frágil quando <em>K_I ≥ K_IC</em>.</p>
+        
+        <h3>3. Evidências Periciais Irrefutáveis</h3>
+        <p>O laudo pericial instruído com espectrometria de emissão óptica (composição química segundo normas ASTM A29/A322), ensaios metalográficos e difração de raios-X para análise de tensões residuais permite ao perito demonstrar matematicamente se a falha ocorreu por choque isolado não previsto em projeto ou por vida em fadiga exaurida em decorrência de concentração geométrica de tensão indevida (raios de concordância usinados em desacordo com as tolerâncias de projeto ISO 286).</p>
+      `
+    },
+    {
+      id: "art-3",
+      titulo: "Metodologia Probatória em Perícias de Insalubridade por Ruído: Da Dosimetria Ocupacional (NHO-01) à Validação de Atenuação por NRRsf",
+      categoria: "Segurança do Trabalho & Higiene Ocupacional",
+      data: "28/10/2024",
+      autor: "Eng. Rafael Leite",
+      tempoLeitura: "7 min de leitura",
+      resumo: "Análise da taxa de duplicação de dose (q=3 vs q=5), validação metrológica de medidores integradores e os requisitos legais para comprovação da neutralização da insalubridade perante os tribunais trabalhistas.",
+      imagem: "https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?auto=format&fit=crop&w=1200&q=80",
+      conteudo: `
+        <h3>1. Divergência Metodológica: Anexo 1 da NR-15 e NHO-01 da Fundacentro</h3>
+        <p>Nas perícias trabalhistas de insalubridade, um dos erros técnicos mais comuns consiste na aplicação descuidada de parâmetros de amostragem acústica. Enquanto o Anexo nº 1 da NR-15 preconiza o Fator de Dobra de Incremento (q=5) e nível limiar de integração de 80 dB(A), a NHO-01 adota o rigor internacional da ISO 1999 (q=3, critério de conservação da energia acústica).</p>
+        <blockquote>Dose (%) = (C1/T1 + C2/T2 + ... + Cn/Tn) · 100</blockquote>
+        
+        <h3>2. Atenuação Efetiva e a Validade do NRRsf</h3>
+        <p>A simples entrega do protetor auricular com Certificado de Aprovação (CA) válido não enseja a presunção absoluta de neutralização do agente nocivo. Segundo a jurisprudência fixada pelo STF (Tema 555 da Repercussão Geral), a eficácia do EPI deve ser empiricamente corroborada. O cálculo do nível de pressão sonora no conduto auditivo protegido obedece à equação:</p>
+        <blockquote>LA_eq,efetivo = LA_eq - NRRsf</blockquote>
+        <p>O perito judicial deve auditar os registros de treinamentos práticos de inserção, os ensaios de vedação anatômica (Fit Test) e os certificados de calibração RBC (Rede Brasileira de Calibração) dos dosímetros, demonstrando se houve atenuação contínua e ininterrupta ao longo de todo o pacto laboral.</p>
+      `
+    },
+    {
+      id: "art-4",
+      titulo: "Classificação de Áreas e Periculosidade por Inflamáveis (NR-16 / IEC 60079): Delimitação Termodinâmica em Litígios Industriais",
+      categoria: "Segurança do Trabalho & Análise de Riscos",
+      data: "18/10/2024",
+      autor: "Eng. Rafael Leite",
+      tempoLeitura: "9 min de leitura",
+      resumo: "Exame dos limites de inflamabilidade (LIE/LSE), taxas de evaporação e modelagem de dispersão atmosférica de vapores para enquadramento estrito de periculosidade no Anexo 2 da NR-16.",
+      imagem: "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=1200&q=80",
+      conteudo: `
+        <h3>1. Princípios Termodinâmicos da Atmosfera Explosiva</h3>
+        <p>O enquadramento da periculosidade em áreas de armazenamento e trasfega de hidrocarbonetos não pode decorrer de mera presunção topográfica. A formação de misturas explosivas depende da volatilidade do composto, expressa pela pressão de vapor Reid (RVP), ponto de fulgor (flash point) e limites inferior (LIE) e superior (LSE) de inflamabilidade.</p>
+        
+        <h3>2. A Interface entre a NBR IEC 60079-10-1 e o Quadro 3 da NR-16</h3>
+        <p>A norma internacional ABNT NBR IEC 60079-10-1 estabelece o zoneamento em Zona 0 (presença contínua de atmosfera inflamável), Zona 1 (ocorrência provável em operação normal) e Zona 2 (presença improvável ou de curtíssima duração). Em perícias judiciais, é indispensável calcular a taxa de liberação de vapor (<em>dG/dt</em>) e a ventilação natural ou mecânica de diluição do ambiente fechado:</p>
+        <blockquote>Q_min = (dG/dt)_max / (k · LIE) · [T / 293 K]</blockquote>
+        <p>Onde <em>k</em> é o fator de segurança operacional. A demonstração geométrica de que o posto de trabalho do reclamante situava-se fora do raio de dispersão da nuvem tóxica/inflamável é a única evidência apta a elidir pleitos indevidos de periculosidade de 30% sobre os vencimentos.</p>
+      `
+    },
+    {
+      id: "art-5",
+      titulo: "Engenharia Forense de Acidentes com Máquinas Pesadas: Reconstituição Cinética e Segurança Funcional (NR-12 e ISO 13849)",
+      categoria: "Engenharia Forense & NR-12",
+      data: "10/10/2024",
+      autor: "Eng. Rafael Leite",
+      tempoLeitura: "11 min de leitura",
+      resumo: "Metodologia científica para reconstituição de acidentes com prensas mecânicas, pontes rolantes e laminadores. Análise de falhas de modo comum e níveis de desempenho de segurança (Performance Level - PLr).",
+      imagem: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1200&q=80",
+      conteudo: `
+        <h3>1. Segurança Funcional e Confiabilidade de Sistemas</h3>
+        <p>Acidentes graves e fatais envolvendo prensas mecânicas excêntricas, dobradeiras hidráulicas e sistemas transportadores contínuos exigem que a perícia judicial avalie não apenas a mecânica de contato, mas a integridade dos sistemas elétricos e pneumáticos de controle relacionados à segurança (SRP/CS), regidos pela ABNT NBR ISO 13849-1/2.</p>
+        
+        <h3>2. Cálculo de Distância de Segurança segundo a ISO 13855</h3>
+        <p>Em prensas equipadas com cortinas óticas de segurança (AOPD), a distância física mínima de instalação (<em>S</em>) em relação à zona perigosa deve impedir que o operador alcance a ferramenta de conformação antes da parada total do martelo:</p>
+        <blockquote>S = (K · T) + C</blockquote>
+        <p>Onde <em>K = 2000 mm/s</em> (velocidade de aproximação da mão humana), <em>T = t1 + t2</em> (tempo de resposta do sensor ótico somado ao tempo de frenagem mecânica da embreagem/freio) e <em>C</em> é a distância suplementar de penetração ótica. Se o tempo de frenagem se deteriorou por desgaste das lonas do freio sem monitoramento periódico de redundância (válvula de segurança de duplo corpo com monitoramento dinâmico), resta caracterizada a responsabilidade técnica do empregador por negligência de manutenção.</p>
+        
+        <h3>3. Reconstituição Cinemática e Nexo de Causalidade</h3>
+        <p>Por meio de modelos de simulação numérica computacional e análise das deformações residuais nos componentes rompidos, a engenharia forense reconstrói com exatidão vetorial a trajetória do operador, refutando hipóteses de culpa exclusiva da vítima quando o maquinário permitia o acionamento acidental (burla) por falha no projeto do intertravamento.</p>
+      `
+    },
+    {
+      id: "art-6",
+      titulo: "A Dinâmica da Impugnação Pericial e Formulação de Quesitos Técnicos em Arbitragens e Litígios de Alta Complexidade",
+      categoria: "Direito Probatório & Assistência Técnica",
+      data: "01/10/2024",
+      autor: "Eng. Rafael Leite",
+      tempoLeitura: "7 min de leitura",
+      resumo: "Princípios de epistemologia forense e aplicação do Standard Daubert na desconstrução de laudos inconclusivos. Estratégias de blindagem probatória em litígios cíveis, corporativos e câmaras arbitrais.",
+      imagem: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1200&q=80",
+      conteudo: `
+        <h3>1. O Assistente Técnico como Agente de Racionalidade Probatória</h3>
+        <p>O Código de Processo Civil de 2015 consolidou o papel do Assistente Técnico (artigos 465, 466 e 477) como garantidor da higidez do contraditório técnico. Em controvérsias complexas envolvendo contratos de EPC (Engineering, Procurement and Construction), lucros cessantes por paradas de fábrica ou sinistros securitários industriais, laudos judiciais desprovidos de sustentação analítica não podem prevalecer.</p>
+        
+        <h3>2. O Critério da Falseabilidade e o Standard Daubert</h3>
+        <p>Inspirado na jurisprudência da Suprema Corte dos EUA (<em>Daubert v. Merrell Dow Pharmaceuticals</em>), o ordenamento jurídico contemporâneo exige que as conclusões do perito sejam submetidas a quatro testes epistemológicos fundamentais:</p>
+        <ul>
+          <li><strong>Empirismo e Testabilidade:</strong> A teoria causal adotada pode ser empiricamente testada e reproduzida?</li>
+          <li><strong>Revisão por Pares:</strong> O método empregado está consolidado na literatura técnica especializada e normas reconhecidas (ABNT, ASME, ISO)?</li>
+          <li><strong>Margem de Erro Conhecida:</strong> Os instrumentos e ensaios utilizados possuem incerteza de medição documentada e controlada?</li>
+          <li><strong>Aceitação Geral na Comunidade Científica:</strong> A conclusão decorre de consenso de engenharia ou de convicção subjetiva isolada?</li>
+        </ul>
+        
+        <h3>3. Formulação Estratégica de Quesitos Suplementares</h3>
+        <p>A formulação de quesitos elucidativos não visa confrontar pessoalmente o perito do juízo, mas balizar objetivamente os limites da prova técnica. Quando o Assistente Técnico estrutura perguntas direcionadas a dados numéricos e leis físicas inexoráveis, qualquer resposta evasiva ou tautológica do laudo pericial oficial torna-se evidente para o julgador, permitindo a procedência do parecer técnico divergente.</p>
+      `
+    }
+  ]
+};
+
+const SITE_DATA_KEY = 'rafael_leite_pericias_data';
+const SITE_DATA_PENDING_KEY = 'rafael_leite_pericias_pending';
+let siteDataRequest = null;
+
+function readSiteStorage(key) {
+  try { return localStorage.getItem(key); } catch { return null; }
+}
+
+function normalizeSiteData(data) {
+  if (!data || !Array.isArray(data.artigos)) throw new Error('Lista de artigos inválida.');
+  return { ...data, experiencias: Array.isArray(data.experiencias) ? data.experiencias : [], servicos: Array.isArray(data.servicos) ? data.servicos : [] };
+}
+
+// Aceita qualquer quantidade de artigos, inclusive zero, sem restaurar itens excluídos.
+function getSiteData() {
+  try {
+    const stored = readSiteStorage(SITE_DATA_KEY);
+    if (stored) return normalizeSiteData(JSON.parse(stored));
+  } catch { /* Um cache inválido não impede abrir o site. */ }
+  return normalizeSiteData(JSON.parse(JSON.stringify(DEFAULT_SITE_DATA)));
+}
+
+function hasLocalArticleChanges() {
+  const pending = readSiteStorage(SITE_DATA_PENDING_KEY);
+  if (pending !== null) return pending === 'true';
+  // Preserva cadastros feitos no painel antigo antes da migração.
+  return Boolean(readSiteStorage(SITE_DATA_KEY)) && JSON.stringify(getSiteData().artigos) !== JSON.stringify(DEFAULT_SITE_DATA.artigos);
+}
+
+async function requestSiteJson(url, options = {}) {
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), 6000);
+  try {
+    const response = await fetch(url, { ...options, signal: controller.signal });
+    if (!response.ok) throw new Error('Servidor indisponível (HTTP ' + response.status + ').');
+    return await response.json();
+  } finally { clearTimeout(timeout); }
+}
+
+// Visitantes novos também leem o arquivo publicado, e não apenas os seis exemplos.
+async function loadSiteData() {
+  if (!/^https?:$/.test(window.location.protocol) || hasLocalArticleChanges()) return getSiteData();
+  if (siteDataRequest) return siteDataRequest;
+  const previousCache = readSiteStorage(SITE_DATA_KEY);
+  siteDataRequest = (async () => {
+    try {
+      const data = normalizeSiteData(await requestSiteJson('artigos.json', { cache: 'no-store' }));
+      // Uma resposta atrasada não pode sobrescrever um artigo recém-salvo.
+      if (hasLocalArticleChanges() || readSiteStorage(SITE_DATA_KEY) !== previousCache) return getSiteData();
+      try {
+        localStorage.setItem(SITE_DATA_KEY, JSON.stringify(data));
+        localStorage.setItem(SITE_DATA_PENDING_KEY, 'false');
+      } catch { /* Leitura pública funciona mesmo sem armazenamento local. */ }
+      return data;
+    } catch { return getSiteData(); }
+    finally { siteDataRequest = null; }
+  })();
+  return siteDataRequest;
+}
+
+// O editor local salva um rascunho exportável. Publicação ocorre pelo arquivo artigos.json.
+async function saveSiteData(data) {
+  const serialized = JSON.stringify(normalizeSiteData(data));
+  try {
+    localStorage.setItem(SITE_DATA_PENDING_KEY, 'true');
+    localStorage.setItem(SITE_DATA_KEY, serialized);
+  } catch {
+    throw new Error('Não foi possível salvar. Libere o armazenamento do navegador e tente novamente.');
+  }
+  return { published: false };
+}
+
+function escapeArticleText(value) {
+  return String(value ?? '').replace(/[&<>"']/g, char => ({ '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;' })[char]);
+}
+
+function prepareArticleContent(text) {
+  // Texto simples ganha parágrafos; artigos anteriores em HTML mantêm a formatação.
+  if (/<\/?[a-z][^>]*>/i.test(text)) return text;
+  return text.trim().split(/\n\s*\n/).map(paragraph => '<p>' + escapeArticleText(paragraph).replace(/\n/g, '<br>') + '</p>').join('\n');
+}
