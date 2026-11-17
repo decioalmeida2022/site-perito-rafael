@@ -1,0 +1,28 @@
+{
+  "servicos": [
+    {
+      "titulo": "Perícia Judicial",
+      "descricao": "Nomeado pelo juízo, com imparcialidade ética e fundamentação técnica."
+    },
+    {
+      "titulo": "Assistência Técnica",
+      "descricao": "Suporte técnico para advogado e partes, com análise crítica e elaboração de quesitos e laudos."
+    },
+    {
+      "titulo": "Engenharia Mecânica",
+      "descricao": "Perícias veiculares, análise de falhas, avaliações técnicas e laudos especializados."
+    },
+    {
+      "titulo": "Engenharia de Segurança do Trabalho",
+      "descricao": "Avaliações, laudos e pareceres técnicos dentro das atribuições profissionais."
+    },
+    {
+      "titulo": "Laudos e Pareceres Técnicos",
+      "descricao": "Documentos claros, objetivos e com embasamento técnico e normativo."
+    },
+    {
+      "titulo": "Análise de Falhas",
+      "descricao": "Investigação de causas, identificação de não conformidades e recomendações."
+    }
+  ]
+}
