@@ -134,7 +134,7 @@
       '*Mensagem:* ' + fields.get('mensagem').trim()
     ].join('\n');
     const link = document.createElement('a');
-    link.href = 'https://wa.me/5531987199241?text=' + encodeURIComponent(message);
+    link.href = 'https://wa.me/' + (window.RAFAEL_CONTACT_WHATSAPP || '5531987199241') + '?text=' + encodeURIComponent(message);
     link.target = '_blank';
     link.rel = 'noopener noreferrer';
     link.click();
