@@ -15,9 +15,11 @@
       if (el) el.textContent = perfil.descricao;
     }
     if (perfil && perfil.imagem_principal) {
-      // Não altera o CSS atual: troca apenas a imagem pré-carregada se a estrutura for compatível.
-      const preload = document.querySelector('link[rel="preload"][as="image"]');
-      if (preload) preload.href = perfil.imagem_principal;
+      // CSS custom property preserva o enquadramento desktop e celular.
+      const path = String(perfil.imagem_principal);
+      if (/^(https?:\\/\\/|assets\\/)[^"'()\\s]+$/i.test(path)) {
+        document.documentElement.style.setProperty('--cms-hero-image', 'url("' + path + '")');
+      }
     }
     if (servicos && Array.isArray(servicos.servicos)) {
       const cards = document.querySelectorAll('.service-grid .service-card');
